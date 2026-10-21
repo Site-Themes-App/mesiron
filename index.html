@@ -498,8 +498,7 @@ function homeView(){
   const items=S.list.map(i=>{const[c,t]=status(i),armed=S.delArmed===i.id;return `<li class="listrow"><button class="card insp" data-act="open" data-id="${i.id}">
     <span class="ic" aria-hidden="true">${KIND[i.kind].ic}</span>
     <span class="tx"><b>${esc(i.title)}</b><span class="muted small">${esc(i.sub)} · ${esc(i.parties.a.name)} ו${esc(i.parties.b.name)}</span>
-    <span class="row" style="margin-top:4px"><span class="pill ${c}">${t}</span>${i.example?'<span class="pill ex">דוגמה</span>':''}</span></span>
-    <span class="chev" aria-hidden="true">‹</span></button><button class="dlbtn" data-act="dlrow" data-id="${i.id}" aria-label="הורדת דוח של ${esc(i.title)}"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M2.5 13.5h11"/></svg></button><button class="delbtn" data-act="delrow" data-id="${i.id}" aria-label="מחיקת ${esc(i.title)}"><span aria-hidden="true">✕</span></button></li>`}).join('');
+    <span class="row" style="margin-top:4px"><span class="pill ${c}">${t}</span>${i.example?'<span class="pill ex">דוגמה</span>':''}</span></span></button><button class="dlbtn" data-act="dlrow" data-id="${i.id}" aria-label="הורדת דוח של ${esc(i.title)}"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M2.5 13.5h11"/></svg></button><button class="delbtn" data-act="delrow" data-id="${i.id}" aria-label="מחיקת ${esc(i.title)}"><span aria-hidden="true">✕</span></button></li>`}).join('');
   const open=S.list.filter(i=>!i.stages.out.locked).length;
   return `
   <section class="card stack" aria-label="סיכום">
